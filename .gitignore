@@ -156,7 +156,7 @@ venv.bak/
 dmypy.json
 
 #csv secret
-/rzp.csv
+*.csv
 
 # Pyre type checker
 .pyre/
