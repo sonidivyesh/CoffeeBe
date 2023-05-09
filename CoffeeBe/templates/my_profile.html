@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoffeeBe-my_profile</title>
+    <style>
+        .container {
+            margin: 140px auto 10px auto;
+            width: 450px;
+            border: 1px solid rgb(255, 255, 255);
+            box-shadow: 2px 2px 5px rgb(170, 170, 170), -2px -2px 5px rgb(170, 170, 170);
+        }
+
+        h2 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 27px;
+        }
+
+        .form {
+            margin: 8px;
+            padding: 8px 170px 8px 10px;
+            border: 1px solid rgb(139, 139, 139);
+            border-radius: 6px;
+        }
+
+        .form:hover {
+            border: 1px solid rgb(66, 66, 255);
+        }
+
+        .btn {
+            margin-top: 10px;
+            margin-bottom: 15px;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 15px;
+            border: 1px solid rgb(35, 95, 249);
+            background-color: rgb(163, 216, 249);
+            cursor: pointer;
+            box-shadow: 0.1px 0.1px 5px rgb(170, 170, 170), -0.1px -0.1px 5px rgb(170, 170, 170);
+        }
+
+        .btn:hover {
+            color: beige;
+            border: 1px solid blue;
+            background-color: rgb(30, 24, 222);
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div class="container">
+            <h2>MY PROFILE</h2>
+            <form action="/my_profile/" method="post" class="sigup_form">
+                {% csrf_token %}
+                {{msg}}
+                <div>
+                    <input type="text" name="first_name" value="{{userdata.first_name}}" id="f_name" class="form"
+                        placeholder="Enter Your First Name *" required="">
+                </div>
+                <div>
+                    <input type="text" name="last_name" value="{{userdata.last_name}}" id="l_name" class="form"
+                        placeholder="Enter Your Last Name *" required="">
+                </div>
+                <div>
+                    <input type="text" name="user_name" value="{{userdata.username}}" id="u_name" class="form"
+                        placeholder="Enter Your Username *" required="">
+                </div>
+                <div>
+                    <input type="email" name="email" value="{{userdata.email}}" id="email" class="form"
+                        placeholder="Enter Your E-mail *" required="" disabled>
+                </div>
+                <div class="btn-text">
+                    <button type="Submit" class="btn">Save</button>
+                </div>
+            </form>
+        </div>
+    </center>
+</body>
+
+</html>

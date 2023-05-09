@@ -1,0 +1,24 @@
+{% extends 'header&footer.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="col-md-12 contact-right">
+    <br><br>
+    <h2 style="text-align: center;">Donating to "{{blog.title}}" by {{blog.user.username}}</h2>
+    <br><br>
+    <h3 style="text-align: center;">Please Enter Amount</h3>
+    <!-- <input class="col-lg-12" placeholder="Name" type="text" required> -->
+    <center>
+        <form action="/donate/{{blog.id}}" method="POST">
+            {% csrf_token %}
+            <input style="padding: 10px 350px 10px 5px;" name="donate_amount" placeholder="Enter amount" required>
+            <div class="submit-btn">
+                <input type="submit" value="Donate ">
+            </div>
+        </form>
+    </center>
+    <br><br><br><br><br>
+</div>
+
+{% endblock %}

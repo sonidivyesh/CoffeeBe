@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>CeffeeBe</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Coffee Break Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+	<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<!---- start-smoth-scrolling---->
+	<script type="text/javascript" src="{% static 'js/move-top.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/easing.js' %}"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+			});
+		});
+	</script>
+	<!--start-smoth-scrolling-->
+	<style>
+		/* The container <div> - needed to position the dropdown content */
+		.dropdown {
+			position: relative;
+			display: inline-block;
+			margin-bottom: 15px;
+		}
+
+		/* Dropdown Button */
+		.dropbtn {
+			background-color: #0e573c;
+			color: white;
+			padding: 8px 22px;
+			font-size: 16px;
+			border: none;
+			border-radius: 5px;
+		}
+
+		/* Change the background color of the dropdown button when the dropdown content is shown */
+		.dropdown:hover .dropbtn {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+
+<body>
+	<!--header-top-starts-->
+	<div class="header-top">
+		<div class="container">
+			<div class="head-main">
+				<a href="/"><img src="{% static 'images/logo-1.png' %}" alt="" /></a>
+			</div>
+		</div>
+	</div>
+	<!--header-top-end-->
+	<!--start-header-->
+	<div class="header">
+		<div class="container">
+			<div class="head">
+				<div class="navigation">
+					<span class="menu"></span>
+					<ul class="navig">
+						{% if home %}
+						<li><a href="/" class="active">Home</a></li>
+						{% else %}
+						<li><a href="/">Home</a></li>
+						{% endif %}
+
+						{% if about %}
+						<li><a href="/about/" class="active">About</a></li>
+						{% else %}
+						<li><a href="/about/">About</a></li>
+						{% endif %}
+
+						{% if gallery %}
+						<li><a href="/gallery/" class="active">Gallery</a></li>
+						{% else %}
+						<li><a href="/gallery/">Gallery</a></li>
+						{% endif %}
+
+						{% if contact %}
+						<li><a href="/contact/" class="active">Contact</a></li>
+						{% else %}
+						<li><a href="/contact/">Contact</a></li>
+						{% endif %}
+
+						{% if userdata %}
+						<li><a href="">{{userdata.first_name}}</a></li>
+
+						<li><a href="/logout/">Logout</a></li>
+
+						{% else %}
+						<li><a href="/login/">Login</a></li>
+
+						<li><a href="/register/">Register</a></li>
+						{% endif %}
+					</ul>
+				</div>
+				<div class="header-right">
+					<div class="search-bar">
+						<input type="text" value="Search" onfocus="this.value = '';"
+							onblur="if (this.value == '') {this.value = 'Search';}">
+						<input type="submit" value="">
+					</div>
+					<ul>
+						<li><a href="#"><span class="fb"> </span></a></li>
+						<li><a href="#"><span class="twit"> </span></a></li>
+						<li><a href="#"><span class="pin"> </span></a></li>
+						<li><a href="#"><span class="rss"> </span></a></li>
+						<li><a href="#"><span class="drbl"> </span></a></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!-- script-for-menu -->
+	<!-- script-for-menu -->
+	<script>
+		$("span.menu").click(function () {
+			$(" ul.navig").slideToggle("slow", function () {
+			});
+		});
+	</script>
+	<!-- script-for-menu -->
+
+	<!--start-single-->
+	<div class="single">
+		<div class="container">
+			<div class="single-top">
+				<a href="#"><img class="img-responsive" src="{% static 'images/single-1.jpg' %}" alt=" "></a>
+				<br><br>
+				<center>
+					<div class="comment-bottom heading">
+						<h1>Add Blog Here</h1>
+						<form action="/add_blog/" method="post" enctype="multipart/form-data">
+							{% csrf_token %}
+							<input style="font-size: 25px;" type="text" name="title" placeholder="Blog Title">
+							<textarea cols="77" rows="6" placeholder="Description" name="description"></textarea>
+							<div class="dropdown">
+								<select name="category" class="dropbtn">Category
+									<div class="dropdown-content">
+										<option value="Latte">Latte</option>
+										<option value="Cappuccino">Cappuccino</option>
+										<option value="Espresso">Espresso</option>
+									</div>
+								</select>
+							</div>
+							<input type="file" name="photo">
+							<input type="submit" value="Post Blog">
+						</form>
+					</div>
+				</center>
+			</div>
+		</div>
+	</div>
+	<!--end-single-->
+
+	<!--footer-starts-->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-text">
+				<p>© 2015 Coffee Break. All Rights Reserved | Design by <a href="http://w3layouts.com/"
+						target="_blank">W3layouts</a> </p>
+			</div>
+		</div>
+	</div>
+	<!--footer-end-->
+</body>
+
+</html>

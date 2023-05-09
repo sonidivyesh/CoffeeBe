@@ -1,0 +1,21 @@
+{% extends 'header&footer.html' %}
+{% load static %}
+
+{% block content %}
+<h2 style="text-align: center; margin-bottom: 30px;">My Blogs</h2>
+<div class="a-1">
+    {% for i in blogs %}
+    <div class="col-md-6 abt-left">
+        <a href="/singleblog/{{i.id}}"><img src="{{i.picture.url}}" alt="" /></a>
+        <!-- <h6>{{i.}}</h6> -->
+        <h6>{{i.user.first_name}} {{i.user.last_name}}</h6>
+        <h3><a href="/singleblog/{{i.id}}">{{i.title}}</a></h3>
+        <p>{{i.desc|slice:":100"}}.....</p>
+        <label>{{i.time}}</label>
+    </div>
+    {% endfor %}
+    <div class="clearfix"></div>
+</div>
+
+<br>
+{% endblock %}
