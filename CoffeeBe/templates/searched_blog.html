@@ -7,7 +7,6 @@
     {% for i in blogs %}
     <div class="col-md-6 abt-left">
         <a href="/singleblog/{{i.id}}"><img src="{{i.picture.url}}" alt="" /></a>
-        <!-- <h6>{{i.}}</h6> -->
         <h6>{{i.user.first_name}} {{i.user.last_name}}</h6>
         <h3><a href="/singleblog/{{i.id}}">{{i.title}}</a></h3>
         <label>{{i.time}}</label>
@@ -15,6 +14,5 @@
     {% endfor %}
     <div class="clearfix"></div>
 </div>
-
 <br>
 {% endblock %}
